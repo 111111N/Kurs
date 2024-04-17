@@ -3,54 +3,80 @@ body{
   background: linear-gradient(270deg,#000, #3c030f);;
   background-attachment: fixed;
   background-size: 100%;
+  margin-left: 160px; /* Поставить такой же, как и ширину боковой панели */
+  padding: 0px 10px;
 }
 
 .menu {
-    height: 100%; /* Полная высота: удалить, если хочется «автоматическую» высоту */
-    width: 160px; /*  Ширину боковой панели */
-    position: fixed; /* Позиция боковой панели (fixed - остается на месте при прокрутке)*/
-    z-index: 1; 
-    top: 0; 
+
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
     left: 0;
-    background-color: #111; /* Цвет заднего фона */
-    overflow-x: hidden; /* Отключить горизонтальную прокрутку */
+    background-color: #111;
+    overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 20px;
-     font-size: 100%;
-  font-family: 'Ubuntu'; /* Шрифт */
+    font-size: 150%;
+  font-family: 'Ubuntu';
   margin: 0;
   padding: 0;
   outline: none;
+  box-shadow: 0 0 0 7px #222222;
+  list-style-type: none;
+  text-shadow: 10px;
 }
+
+.game{
+  display: flex;
+}
+
 
 /* Ссылки в меню */
 .menu a {
-    padding: 6px 8px 6px 16px;
+    padding: 20px 0px 0px 15px;
     text-decoration: none;
-    font-size: 25px;
-    color: #08ED64;
+    color: #6F947E;
     display: block;
 }
 
-/* При наведении мышкой на ссылку, иконка меняет цвет */
+/* Смена цввета при наведении */
 .menu a:hover {
     color: #f1f1f1;
 }
 
-/* Назвал это геймом, но по-сути это просто все, что не меню */
-.game{
-    margin-left: 160px; /* Поставить такой же, как и ширину боковой панели */
-    padding: 0px 10px;
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Время */
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.showtime {
+    padding: 430px 8px 6px 15px;
+    text-decoration: underline;
+    color: #C4CA98;
+    display: absolute;
+
+}
+
+#presets {
+  margin-top: 3vh;
+  width: 100%;
+  text-align: center;
+  color: #fff;
 }
 
 .Heat{
-  position: sticky;
-   top: 100 px; 
-   left: -100 px;
-  border:10px solid #000000; 
+  border:5px solid #000000; 
   border-radius:7px; 
-  margin-bottom: -5px
+  margin-bottom: 5px;
+  background-color: #000000;
 }
 
+.control{
+  width: 100%;
+  text-align: center;
+  color: #000;
+  background-color:#fff;
+}
 
 .control th {
 border: 2px solid rgb(160 160 160);
@@ -58,26 +84,53 @@ border: 2px solid rgb(160 160 160);
 }
 
 
-.control caption{
-  caption-side: bottom;
-  padding: 10px;
-  font-weight: bold;
-  color: #000000;
-}
-
 /* На экранах меньшего размера, где высота менее 450 пикселей, изменяет стиль боковой панели (меньше отступов и меньший размер шрифта). */
 @media screen and (max-height: 450px) {
     .menu {padding-top: 15px;}
     .menu a {font-size: 18px;}
 }
 
-/* Время */
-.showtime {
-    padding: 6px 8px 6px 16px;
-    text-decoration: underline;
-    font-size: 25px;
-    color: #ff0000;
-    display: block
-
+  .knopki {
+    font-weight: 600;
+    color: #382b22;
+    text-transform: uppercase;
+    padding: 1.25em 2em;
+    background: #ffffff;
+    border: 2px solid #b18597;
+    border-radius: 0.75em;
+    transform-style: preserve-3d;
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+    &::before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 90%;
+      top: 0px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #ffc4d2;
+      border-radius: inherit;
+      box-shadow: 0 0 0 2px #b18597, 0 0.25em 0 0 #ffe3e2;
+      transform: translate3d(0, 0.75em, -1em);
+      transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+    }
+    &:hover {
+      background: #ffeeee;
+      transform: translate(0, 0.25em);
+      cursor:pointer;
+      &::before {
+        box-shadow: 0 0 0 2px #b18597, 0 0.1em 0 0 #ffe3e2;
+        transform: translate3d(0, 0.5em, -1em);
+      }
+    }
+    &:active {
+      color: #ffffff;
+      background: #000000;
+      cursor:grabbing;
+      transition: background-color 0.2s ease-in-out;
+  }
 }
+
+
 

@@ -49,20 +49,21 @@ h1 {
     background-color: #111;
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 20px;
-    font-size: 100%;
+    font-size: 150%;
 	font-family: 'Ubuntu';
 	margin: 0;
 	padding: 0;
 	outline: none;
 	box-shadow: 0 0 0 7px #222222;
 	list-style-type: none;
+	text-shadow: 10px;
 }
 
 /* Ссылки в меню */
 .menu a {
-    padding: 20px 8px 0px 5px;
+
+    padding: 20px 0px 0px 15px;
     text-decoration: none;
-    font-size: 25px;
     color: #6F947E;
     display: block;
 }
@@ -76,12 +77,11 @@ h1 {
 /* Время */
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 .showtime {
-    padding: 6px 8px 6px 5px;
+    padding: 430px 8px 6px 15px;
     text-decoration: underline;
-    font-size: 25px;
     color: #C4CA98;
-    display: block;
-    bottom: 10;
+    display: absolute;
+
 }
 
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -132,9 +132,6 @@ h1 {
 	}
 }
 
-.active {
-      colorr: red
-	}
 
 /* Надпись над слайдером  */
 #options {
