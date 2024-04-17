@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+body{
+  background: linear-gradient(270deg,#000, #3c030f);;
+  background-attachment: fixed;
+  background-size: 100%;
+}
+
+.menu {
+    height: 100%; /* Полная высота: удалить, если хочется «автоматическую» высоту */
+    width: 160px; /*  Ширину боковой панели */
+    position: fixed; /* Позиция боковой панели (fixed - остается на месте при прокрутке)*/
+    z-index: 1; 
+    top: 0; 
+    left: 0;
+    background-color: #111; /* Цвет заднего фона */
+    overflow-x: hidden; /* Отключить горизонтальную прокрутку */
+    padding-top: 20px;
+     font-size: 100%;
+  font-family: 'Ubuntu'; /* Шрифт */
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+/* Ссылки в меню */
+.menu a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #08ED64;
+    display: block;
+}
+
+/* При наведении мышкой на ссылку, иконка меняет цвет */
+.menu a:hover {
+    color: #f1f1f1;
+}
+
+/* Назвал это геймом, но по-сути это просто все, что не меню */
+.game{
+    margin-left: 160px; /* Поставить такой же, как и ширину боковой панели */
+    padding: 0px 10px;
+}
+
+.Heat{
+  position: sticky;
+   top: 100 px; 
+   left: -100 px;
+  border:10px solid #000000; 
+  border-radius:7px; 
+  margin-bottom: -5px
+}
+
+
+.control th {
+border: 2px solid rgb(160 160 160);
+  padding: 10px 10px;
+}
+
+
+.control caption{
+  caption-side: bottom;
+  padding: 10px;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* На экранах меньшего размера, где высота менее 450 пикселей, изменяет стиль боковой панели (меньше отступов и меньший размер шрифта). */
+@media screen and (max-height: 450px) {
+    .menu {padding-top: 15px;}
+    .menu a {font-size: 18px;}
+}
+
+/* Время */
+.showtime {
+    padding: 6px 8px 6px 16px;
+    text-decoration: underline;
+    font-size: 25px;
+    color: #ff0000;
+    display: block
+
+}
+
