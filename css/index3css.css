@@ -195,9 +195,10 @@ datalist {
   height: 3rem;
    margin: 0 0.35rem;
   justify-content: space-between;
-  color: #000000;
+  color: #382b2f;
   line-height: 1.25;
   transform: translatey(1rem);
+
 }
 
 /*Обводка подписей*/
