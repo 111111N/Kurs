@@ -61,10 +61,6 @@ canvas = document.getElementById("board");
             }
             button_clear.onclick = function DrawSolution(){
             time=0;
-            autoPlayTimeOut = setTimeout(() => {
-                    DrawSolution(time + Math.round(config.iteration_speed));
-                }, 50);
-            config.autoPlay = true;
             } 
         }
 
@@ -89,7 +85,7 @@ canvas = document.getElementById("board");
                 iteration_speed: document.getElementById('ctlIteration_speed').value,
                 autoPlay: false,
             }
-            
+
             for (let i = 1; i < 5; i++) {
                 config["T" + i] = parseFloat(document.getElementById('ctlT' + i).value);
                 document.getElementById("T" + i + "C").innerHTML = "T" + i + ": " + Math.floor(100 * config["T" + i]) + " C";

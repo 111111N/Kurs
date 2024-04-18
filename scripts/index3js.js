@@ -102,7 +102,7 @@ const scale = (y) => (canvas.height / 2) - y;
 //Отобразите значения на холсте
 const draw = () => {
     ctx.lineWidth = 2;
-    ctx.font = "30px Ubuntu";
+    ctx.font = "35px Oswald";
     ctx.fillStyle = "black";
     ctx.fillRect(0,0,canvas.width,canvas.height);
 
@@ -117,8 +117,8 @@ const draw = () => {
     //Называем оси
     ctx.fillStyle = "white";
     ctx.beginPath();
-    ctx.fillText("Температура",16,30)
-    ctx.fillText("Позиция",canvas.width - 135, canvas.height - 20)
+    ctx.fillText("Температура",16,35)
+    ctx.fillText("Позиция",canvas.width - 120, canvas.height - 20)
     ctx.fill()
 
     //Рисуем значения температуры
@@ -155,6 +155,13 @@ const compute = (dt) => {
 //Функции задающие значения
 
 //Синусоида
+const clearbut = () => {
+    values = []; 
+    for(var i = 0; i < point_number; i++){
+        values.push() 
+    }
+}
+
 const sine = () => {
     values = []; 
     for(var i = 0; i < point_number; i++){
@@ -203,7 +210,9 @@ setInterval(() => {
 }, 1000/60) // Фреймрейт
 
 //Клики
+document.querySelector("#clearbut").onclick = clearbut;
 document.querySelector("#sine").onclick = sine;
 document.querySelector("#tan").onclick = tan;
 document.querySelector("#square").onclick = square;
 document.querySelector("#noise").onclick = random;
+

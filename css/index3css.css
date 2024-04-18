@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+
 * {
 	font-size: 100%;
-	font-family: 'Ubuntu';
+	font: optional: 'Ubuntu';
 	margin: 0;
 	padding: 0;
 	outline: none;
@@ -11,13 +14,17 @@ body {
 	background: linear-gradient(90deg,#826788,#826788);;
 	background-attachment: fixed;
 	background-size: 100%;
+  font-family: 'Oswald';
+  font-weight: 700;
 }
 
 h1 {
 	width: 100%;
 	text-align: center;
-	color: #EEE;
-	font-size: 30px;
+	color: #fff;
+	font-size: 40px;
+  -webkit-text-stroke: 0.7px #704153;
+  text-shadow: 0px 3px 1px #b18597;
 }
 
 #rod, #presets, #options {
@@ -52,12 +59,13 @@ h1 {
     padding-top: 20px;
     font-size: 150%;
 	font-family: 'Ubuntu';
+  
 	margin: 0;
 	padding: 0;
 	outline: none;
 	box-shadow: 0 0 0 7px #222222;
 	list-style-type: none;
-	text-shadow: 10px;
+	
 }
 
 /* Ссылки в меню */
@@ -77,10 +85,11 @@ h1 {
 /* Время */
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 .showtime {
-    padding: 460px 8px 6px 15px;
+    padding: 420px 8px 6px 15px;
     text-decoration: underline;
     color: #C4CA98;
     display: absolute;
+    
 
 }
 
@@ -93,7 +102,9 @@ h1 {
   .knopki {
     font-weight: 600;
     color: #382b22;
-    text-transform: uppercase;
+    font-family: 'Oswald';
+    font-weight: 600;
+    font-size: 120%;
     padding: 1.25em 2em;
     background: #ffffff;
     border: 2px solid #b18597;
@@ -155,12 +166,13 @@ input[type=range] {
   text-align: center;
   width: 72.7rem;
   height: 1.25rem;
+
   -webkit-appearance: none;
   background: linear-gradient(180deg, #b18597, #ffe3e2, #ffffff);
   border-radius: 1rem;
 
   /*Обводка слайдера*/
-  outline: 6px ridge hsl(349, 100%, 87%);
+  outline: 6px ridge hsl(349, 100%, 91%);
   outline-offset: 0.5rem;
   box-shadow: 0 3px 2px -1px rgba(255, 255, 255, 0.25) inset, 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 0 10px 2px rgba(0, 0, 0, 0.25), 0 8px 4px -3px rgba(0, 0, 0, 0.15);
 }
@@ -180,7 +192,7 @@ input[type=range]::-webkit-slider-thumb {
   transform: translatey(-1.375rem);
   width: 3rem;
   height: 3rem;
-    background: radial-gradient(#444 45%, #555 50%, #222 55%, #ffa8af 57.5%, #ffa8af 100%), conic-gradient(#4b4b4b 10deg, #777 45deg, #5b5b6b 70deg, #9f9f9f 105deg, #444 140deg, #AAA 185deg, #666 210deg, #999 245deg, #777 285deg, #9f9f9f 320deg, #4b4b4b);
+    background: radial-gradient(#444 45%, #555 50%, #222 55%, #ffb9af 57.5%, #ffe3e2 100%), conic-gradient(#4b4b4b 10deg, #777 45deg, #5b5b6b 70deg, #9f9f9f 105deg, #444 140deg, #AAA 185deg, #666 210deg, #999 245deg, #777 285deg, #9f9f9f 320deg, #4b4b4b);
   background-blend-mode: overlay;
   box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.35) inset, 0 1px 1px 1px rgba(255, 255, 255, 0.25) inset, 0 0 2px 2px rgba(0, 0, 0, 0.15) inset, 0 1px 1px 1px rgba(0, 0, 0, 0.35), 0 3px 2px 1px rgba(0, 0, 0, 0.25), 0 6px 4px 3px rgba(0, 0, 0, 0.15);
   border-radius: 1.5rem;
@@ -195,16 +207,16 @@ body input[type=range]::-webkit-slider-thumb:active {
 /* Подписи ползунка  */
 datalist {
   font-size: 90%;
-  font-family: 'Ubuntu';
+  font-family: 'Oswald';
   display: inline-flex;
-  width: 73rem;
+  width: 72.72rem;
   height: 2.2rem;
   margin: 0 0.35rem;
   justify-content: space-between;
   color: #382b2f;
   line-height: 1.25;
   transform: translatey(1rem);
-
+  text-align: center;
 }
 
 /*Обводка подписей*/
@@ -216,10 +228,10 @@ datalist > option {
   padding: 0 0.25rem;
   border: 1px solid #b18597;
   background: #ffffff;
-
   border-radius: 0.5rem;
   text-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 0 0 0 2px #b18597, 0 0.1em 0 0 #ffe3e2;
+  box-shadow: 0 0 0 1.3px #b18597, 0 0.15em 0 0 #ffe3e2;
+      transform: translate3d(0, -0.38em, -1em);
 }
 
 /*Соединение */
@@ -233,8 +245,6 @@ datalist > option:before {
   background:#b18597;
   transform: translatey(-100%);
 }
-
-
 
 
 .graph {

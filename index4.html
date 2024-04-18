@@ -82,16 +82,15 @@
 
                                 Время : <input  id="ctlTime" type="range" min="0" max="999"
                                     step="1" value="0" oninput="config.autoPlay=false;DrawSolution(this.value)">
+                            </td>
 
 
 
 
     </div>
-    </td>
     <td>
-        <span id="ctlInfo"></span>
+        <span id="ctlInfo"><span class='loader'></span></span>
     </td>
-    </tr>
     <tr>
         <td></td>
         <td id="T2C" style="text-align: center;"> T2 </td>
@@ -130,11 +129,11 @@
 
     </tr>
     <td></td>
-               <th style="padding: 0px 40px 0 0;"><input class="knopki" type="button" id="button_clear" value="Очистить"/></th>
+               <th style="padding: 0px 40px 0 0;"><input class="knopki" type="button" id="button_clear" value="Очистить" oninput="config.autoPlay=true;"/></th>
     </table>
 
     </div>
-    <script src="./scripts/showtime.js"> </script>
+   <script src="./scripts/showtime.js"> </script>
     <script src="./scripts/Heat_2D_static.js"> </script>
     <script src="./scripts/NumHeatSolv.js"> </script>
 </body>
