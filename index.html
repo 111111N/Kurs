@@ -7,8 +7,7 @@
   <title>Курсовая работа 131-МКо</title>
   <link rel="stylesheet" href="./css/site.css">
   <link rel="icon" href="Img/favicon.ico">
-  <script src="./scripts/jscript1.js"> </script>
-  <script src="./scripts/Heat_2D.js"> </script>
+  
   
 </head>
 
@@ -22,28 +21,39 @@
 </nav>
 
 <body>
-<div class ="game">
-  <canvas class="Heat" id="Heat_2D_canvas" width="600" height="600"></canvas>
+  <table>
+      <td><span id="ctlInfo"></span></td>
+      <td>
+        <div class ="game">
+          <canvas class="Heat" id="Heat_2D_canvas" width="600" height="600">fff</canvas>
+        </div>
+      </td>
+      <td> 
+        <ul>
+          <li>
+            <input class="knopki" type="button" id="button_pause" value="Пауза/Старт"/>
+          </li>
+          <li> 
+            <input class="knopki" type="button" id="button_clear" value="Очистить"/>
+          </li>
+        </ul>
+        </td>
+      
+  <div id="presets">
+  </div>
 
-
-</div>
-
-<table class="control">
-  <tr>
+<br>
+  <tr class="control">
     <th>Левая кнопка мыши - нагреть область
     <th>Средняя кнопка мыши - придать области нормальную температуру</th>
     <th>Правая кнопка мыши - охладить область</th>
   </tr>
 </table>
 
-  <div id="presets">
-    <input class="knopki" type="button" id="button_pause" value="Пауза/Старт"/>
-    <input class="knopki" type="button" id="button_clear" value="Очистить"/>
-  </div>
-<br>
+  
 
 
-
-
+<script src="./scripts/showtime.js"> </script>
+<script src="./scripts/Heat_2D.js"> </script>
 </body>
 </html>

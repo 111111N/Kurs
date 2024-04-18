@@ -214,7 +214,27 @@ function main_heat() {
 
         return canv_obj;
     }
+
+    function InitProblem() {
+            Log("<span class='loader'></span>")
+            setTimeout(() => {
+                main_heat()
+            });
+
+        }
+    function initUI() {
+            info = document.getElementById('ctlInfo');
+            //Config controller events
+            var controls = document.querySelectorAll(".controls input");
+            for (let i = 0; i < controls.length; i++) {
+                controls[i].addEventListener("change", InitProblem);
+            }
+        }
+
+        initUI();
+        InitProblem();
 }
+
 
 // Авторы оригинального кода: Цветков Денис и Антон Кривцов
 // Доработал: Наддака Артём

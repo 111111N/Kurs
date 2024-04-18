@@ -4,7 +4,7 @@ canvas = document.getElementById("board");
         ctx = canvas.getContext("2d");
         var autoPlayTimeOut;
         var info;
-        
+        var iteration_speed
         var config = {
         }
 
@@ -44,7 +44,7 @@ canvas = document.getElementById("board");
             };
             ctx.beginPath();
 
-            Log("Time: " + time + "/" + u.length);
+            Log("Итераций : " + time + "/" + u.length);
             let uT = u[time];
             for (let x = 0; x < uT.length - 1; x++) {
                 for (let y = 0; y < uT[x].length - 1; y++) {
@@ -56,9 +56,16 @@ canvas = document.getElementById("board");
             ctx.stroke();
             if (config.autoPlay) {
                 autoPlayTimeOut = setTimeout(() => {
-                    DrawSolution(time + 1);
+                    DrawSolution(time + Math.round(config.iteration_speed));
                 }, 50);
             }
+            button_clear.onclick = function DrawSolution(){
+            time=0;
+            autoPlayTimeOut = setTimeout(() => {
+                    DrawSolution(time + Math.round(config.iteration_speed));
+                }, 50);
+            config.autoPlay = true;
+            } 
         }
 
         //Calculate each time frame
@@ -70,7 +77,7 @@ canvas = document.getElementById("board");
                     }
                 }
             } 
-            this.config.autoPlay = true;
+            config.autoPlay = true;
         }
 
         function BuildConfig() {
@@ -79,9 +86,10 @@ canvas = document.getElementById("board");
                 iterations: document.getElementById('ctlIteration').value,
                 resulation: 50 - document.getElementById('ctlResulation').value,
                 conductivity: document.getElementById('ctlConductivity').value,
-                autoPlay: false
+                iteration_speed: document.getElementById('ctlIteration_speed').value,
+                autoPlay: false,
             }
-
+            
             for (let i = 1; i < 5; i++) {
                 config["T" + i] = parseFloat(document.getElementById('ctlT' + i).value);
                 document.getElementById("T" + i + "C").innerHTML = "T" + i + ": " + Math.floor(100 * config["T" + i]) + " C";
@@ -89,10 +97,11 @@ canvas = document.getElementById("board");
             let timeSlider = document.getElementById('ctlTime');
             timeSlider.max = config.iterations;
             timeSlider.value = 0;
+            
         }
 
         function InitProblem() {
-            Log("Calculating...")
+            Log("<span class='loader'></span>")
             setTimeout(() => {
                 BuildConfig();
                 initSolution();
@@ -118,3 +127,5 @@ canvas = document.getElementById("board");
 
         initUI();
         InitProblem();
+
+        
