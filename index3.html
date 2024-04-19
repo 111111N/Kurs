@@ -8,18 +8,25 @@
   <link rel="icon" href="Img/favicon.ico">
 </head>
 
-<nav class="menu">
-<li><a href="index.html">Игра</a></li>
-<li><a href="index4.html">Численное решение</a></li>
-<li><a href="index3.html">1D Решение</a></li>
-<li><a href="#">Контакты</a></li>
-<li><div class="showtime"> Время <div id="clock"></div></li>
 
+<nav class="menu">
+    <table>
+    <tr><td class ="menutable">
+        <li><a href="index.html">Игра</a></li>
+        <li><a href="index4.html">Численное решение</a></li>
+        <li><a href="index3.html">1D Решение</a></li>
+        <li><a href="#">Контакты</a></li>
+    </td></tr>
+    <tr><td>
+        <li><div class="showtime"> Время <div id="clock">
+        </div></li>
+    </td></tr>
+    </table>
 </nav>
 
 <body>
 
-    <h1>Решение уравнения теплопроводности в 1D</h1>
+    <h1 class="headesthead">Решение уравнения теплопроводности в 1D</h1>
     <div id="rod">
         <canvas id="canvas" width="500" height="100"></canvas>
     </div>
@@ -37,6 +44,7 @@
 <br>
 
     <div id="options">
+
         <h1>
         Скорость изменения : 
         </h1>
@@ -55,11 +63,14 @@
        
     </div>
 
-    <script src="./scripts/index3js.js"></script>
 
-
+<script src="./scripts/index3js.js"></script>
 <script src="./scripts/showtime.js"> </script>
 <script src="./scripts/jscript1.js"> </script>
 
 </body>
+
+
+
+
 </html>

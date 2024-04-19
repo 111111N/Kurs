@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head> 
 
   <meta charset="UTF-8">
@@ -11,24 +11,51 @@
 </head>
 
 <nav class="menu">
-<li><a href="index.html">Игра</a></li>
-<li><a href="index4.html">Численное решение</a></li>
-<li><a href="index3.html">1D Решение</a></li>
-<li><a href="#">Контакты</a></li>
-<li><div class="showtime"> Время <div id="clock"></div></li>
-
+    <table>
+    <tr><td class ="menutable">
+        <li><a href="index.html">Игра</a></li>
+        <li><a href="index4.html">Численное решение</a></li>
+        <li><a href="index3.html">1D Решение</a></li>
+        <li><a href="#">Контакты</a></li>
+    </td></tr>
+    <tr><td>
+        <li><div class="showtime"> Время <div id="clock">
+        </div></li>
+    </td></tr>
+    </table>
 </nav>
+
 
 <body>
 
-  <table>
-      <td><span id="ctlInfo"></span></td>
+  <table class="TableGame">
+    <tr><td></td><th class="headesthead">Заголовок</th><td></td></tr>
+    <tr>
+      <td>
+                    <form  class="gr-input" > <input type="text" id="fps">
+                      <label>FPS</label>  
+                    </form>
+
+                    <form  class="gr-input" > <input type="text" id="T_max">
+                      <label>Максимальная температура</label>  
+                    </form>
+
+                    <form  class="gr-input" > <input type="text" id="T_min">
+                      <label>Минимальная температура</label>  
+                    </form>
+
+                    <input class="knopki" type="button" id="button_send" value="Отправить"/>
+      </td>
+
+
       <td>
         <div class ="game">
-          <canvas class="Heat" id="Heat_2D_canvas" width="600" height="600">fff</canvas>
+          <canvas class="Heat" id="Heat_2D_canvas"width="700" height="700">fff</canvas>
         </div>
       </td>
-      <td> 
+
+
+      <td style="text-align: start;"> 
         <ul>
           <li>
             <input class="knopki" type="button" id="button_pause" value="Пауза/Старт"/>
@@ -38,15 +65,16 @@
           </li>
         </ul>
         </td>
-      
-  <div id="presets">
-  </div>
+    </tr>
 
-<br>
+</table>
+<table>
   <tr class="control">
-    <th>Левая кнопка мыши - нагреть область
-    <th>Средняя кнопка мыши - придать области нормальную температуру</th>
-    <th>Правая кнопка мыши - охладить область</th>
+
+    <td style="width: 30%;">Левая кнопка мыши - нагреть область</td>
+
+    <td style="width: 700px;">Средняя кнопка мыши - придать области нормальную температуру</td>
+    <td style="width: 30%;">Правая кнопка мыши - охладить область</td>
   </tr>
 </table>
 

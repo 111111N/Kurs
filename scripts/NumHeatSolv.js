@@ -39,7 +39,7 @@ canvas = document.getElementById("board");
 
         //Draw Canvas
         function DrawSolution(time) {
-            if (time >= u.length) {
+            if (time > u.length)     {
                 return
             };
             ctx.beginPath();
@@ -58,10 +58,9 @@ canvas = document.getElementById("board");
                 autoPlayTimeOut = setTimeout(() => {
                     DrawSolution(time + Math.round(config.iteration_speed));
                 }, 50);
+
             }
-            button_clear.onclick = function DrawSolution(){
-            time=0;
-            } 
+            
         }
 
         //Calculate each time frame
@@ -73,6 +72,7 @@ canvas = document.getElementById("board");
                     }
                 }
             } 
+
             config.autoPlay = true;
         }
 
@@ -93,7 +93,9 @@ canvas = document.getElementById("board");
             let timeSlider = document.getElementById('ctlTime');
             timeSlider.max = config.iterations;
             timeSlider.value = 0;
+            button_clear.onclick = function BuildConfig(){
             
+            } 
         }
 
         function InitProblem() {
@@ -120,8 +122,25 @@ canvas = document.getElementById("board");
                 controls[i].addEventListener("change", InitProblem);
             }
         }
+        
 
         initUI();
         InitProblem();
+
+       button_clear.addEventListener("click", function() {
+    // Показываем лоудер
+    Log("<span class='loader'></span>");
+
+    // Очищаем таймер автоматического воспроизведения
+    clearTimeout(autoPlayTimeOut);
+    
+    // Устанавливаем небольшую задержку перед началом длительных операций
+    setTimeout(() => {
+        BuildConfig();
+        initSolution();
+        Resolve();
+        DrawSolution(0);
+    }, 100); // Задержка в 100 миллисекунд
+});
 
         

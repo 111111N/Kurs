@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 <head> 
 
   <meta charset="UTF-8">
@@ -12,22 +11,27 @@
 
 </head>
 
-
 <nav class="menu">
-<li><a href="index.html">Игра</a></li>
-<li><a href="index4.html">Численное решение</a></li>
-<li><a href="index3.html">1D Решение</a></li>
-<li><a href="#">Контакты</a></li>
-<li><div class="showtime"> Время <div id="clock"></div></li>
-
+    <table>
+    <tr><td class ="menutable">
+        <li><a href="index.html">Игра</a></li>
+        <li><a href="index4.html">Численное решение</a></li>
+        <li><a href="index3.html">1D Решение</a></li>
+        <li><a href="#">Контакты</a></li>
+    </td></tr>
+    <tr><td>
+        <li><div class="showtime"> Время <div id="clock">
+        </div></li>
+    </td></tr>
+    </table>
 </nav>
 
-<body style="background-color: black;color: aliceblue;">
+<body>
     <div style="float: left; margin-left: 10px;">
-        <table> 
+        <table class=""> 
                <td></td>
-               <th >Численное решение уравнения тепопроводности </th>
-            
+               <th class="headesthead">Численное решение уравнения тепопроводности </th>
+            <td></td>
             <tr>
                 <td  class="controls">
 
@@ -35,44 +39,40 @@
                     <br>
                     <input  class="gr-input" id="ctlT1" type="range" min="0" max="1" step="0.05" value="1">
                     
-                    <hr>
 
                     T2:
                     <br>
                     <input  class="gr-input"  id="ctlT2" type="range" min="0" max="1" step="0.05" value="0">
-                
-                    <hr>
+                   
 
                     T3:
                     <br>
                     <input  class="gr-input" id="ctlT3" type="range" min="0" max="1" step="0.05" value="0.15">
-                    <hr>
-
+                    
                     T4:
                     <br>
                     <input  class="gr-input" id="ctlT4" type="range" min="0" max="1" step="0.05" value="0">
-                    <hr>
+                    
 
                     Проводимость (c):
                     <br>
                     <input  class="gr-input" id="ctlConductivity" type="range" min="0.01" max="0.25" step="0.01" value="0.25">
-                    <hr>
+                    
 
                     Количество итераций:
                     <br>
                     <input  class="gr-input" id="ctlIteration" type="range" min="100" max="2000" step="1" value="1000">
-                    <hr>
+                    
 
                     Скорость:
                     <br>
                     <input  class="gr-input" id="ctlIteration_speed" type="range" min="1" max="10" step="1" value="1">
-                    <hr><hr>
+                    
 
                     Разрешение:
                     <br>
                     <input  class="gr-input" id="ctlResulation" type="range" min="0" max="45" step="1" value="45">
-                    <hr>                    
-                    <hr>
+                    
                 </td>
                 <td>
                     <table>
@@ -97,16 +97,16 @@
         <td></td>
     </tr>
     <tr>
-        <td id="T1C" style="text-align: center;"> T1</td>
+        <td id="T1C" style="text-align: end;"> T1</td>
 
-        <td>
-            <canvas id="board" width="500" height="500" style="border: 1px solid;">
+        <td class="board">
+            <canvas id="board" width="700" height="700" style="border: 1px solid;">
 
                 
             </canvas>
         </td>
 
-        <td id="T3C" style="text-align: center;">T3</td>
+        <td id="T3C" style="text-align: start;">T3</td>
     </tr>
     <tr>
         <td></td>
@@ -114,9 +114,9 @@
         <td></td>
     </tr>
     </table>
-    </td>
-    <td > 
-        <img width="350" height="30" src="https://diwsi.github.io/2DHeatEquation/eq.PNG" /><br>
+    
+    <td> 
+        <img width="450" height="40" src="https://diwsi.github.io/2DHeatEquation/eq.PNG" /><br>
         <ul>
             <li>c: Теплопроводимость</li>
             <li>u: Решение</li>
@@ -126,12 +126,15 @@
         <br>
         
     </td>
-
-    </tr>
+    <tr>
+    
     <td></td>
                <th style="padding: 0px 40px 0 0;"><input class="knopki" type="button" id="button_clear" value="Очистить" oninput="config.autoPlay=true;"/></th>
-    </table>
+    <td></td>
+    </tr> 
 
+    </table>
+    
     </div>
    <script src="./scripts/showtime.js"> </script>
     <script src="./scripts/Heat_2D_static.js"> </script>
