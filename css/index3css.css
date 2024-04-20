@@ -186,7 +186,7 @@ input[type=range] {
   -webkit-appearance: none;
   background: linear-gradient(180deg, #b18597, #ffe3e2, #ffffff);
   border-radius: 1rem;
-
+  
   /*Обводка слайдера*/
   outline: 6px ridge hsl(349, 100%, 91%);
   outline-offset: 0.5rem;
@@ -201,7 +201,6 @@ input[type=range]::-webkit-slider-runnable-track {
   margin: 0 0.5rem;
   border: solid #000 0.07rem;
   border-radius: 1rem;
-  
 }
 
 /*Ползунок */

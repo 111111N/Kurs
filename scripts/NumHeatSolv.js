@@ -47,9 +47,12 @@ canvas = document.getElementById("board");
             Log("Итераций : " + time + "/" + u.length);
             let uT = u[time];
             for (let x = 0; x < uT.length - 1; x++) {
-                for (let y = 0; y < uT[x].length - 1; y++) {
+                for (let y = 0; y < uT[x].length - 1; y++) {                                        //////////////// Цвет фона
                     var density = Math.floor(255 * uT[x + 1][y + 1]);
-                    ctx.fillStyle = 'rgb(' + density + ', ' + 0 + ', ' + 10 + ')';
+                    
+                   ctx.fillStyle = 'rgb(' + density + ', ' + 0 + ', ' + 10 + ')';                                    
+/*                    ctx.fillStyle = 'lab(' + density + ', ' + 0 + ', ' + 0 + '%)';                                    *///
+/*                    ctx.fillStyle = 'hsl(' + density + ', ' + 100 + '%, ' + 60 + '%)';                                *///Радужный
                     ctx.fillRect(x * config.resulation, y * config.resulation, config.resulation, config.resulation);
                 }
             }
@@ -65,6 +68,7 @@ canvas = document.getElementById("board");
 
         //Calculate each time frame
         function Resolve() {
+
             for (let t = 0; t < u.length - 1; t++) {
                 for (let x = 1; x < u[t].length - 1; x++) {
                     for (let y = 1; y < u[t][x].length - 1; y++) {
@@ -77,8 +81,10 @@ canvas = document.getElementById("board");
         }
 
         function BuildConfig() {
+
             clearTimeout(autoPlayTimeOut);
             config = {
+
                 iterations: document.getElementById('ctlIteration').value,
                 resulation: 50 - document.getElementById('ctlResulation').value,
                 conductivity: document.getElementById('ctlConductivity').value,
@@ -99,14 +105,14 @@ canvas = document.getElementById("board");
         }
 
         function InitProblem() {
-            Log("<span class='loader'></span>")
-            setTimeout(() => {
+            Log("<span class='loader'></span>");
+            setTimeout(() =>{
                 BuildConfig();
                 initSolution();
                 Resolve();
                 DrawSolution(0);
 
-            });
+            },);
 
         }
 
@@ -115,6 +121,7 @@ canvas = document.getElementById("board");
         }
 
         function initUI() {
+
             info = document.getElementById('ctlInfo');
             //Config controller events
             var controls = document.querySelectorAll(".controls input");

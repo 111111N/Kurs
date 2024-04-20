@@ -14,7 +14,7 @@
     <table>
     <tr><td class ="menutable">
         <li><a href="index.html">Игра</a></li>
-        <li><a href="index4.html">Численное решение</a></li>
+        <li><a href="index2.html">Численное решение</a></li>
         <li><a href="index3.html">1D Решение</a></li>
         <li><a href="#">Контакты</a></li>
     </td></tr>
@@ -29,22 +29,42 @@
 <body>
 
   <table class="TableGame">
-    <tr><td></td><th class="headesthead">Заголовок</th><td></td></tr>
+    <tr>
+      <td></td>
+      <th class="headesthead">В разработке</th>
+      <td></td>
+    </tr>
     <tr>
       <td>
-                    <form  class="gr-input" > <input type="text" id="fps">
-                      <label>FPS</label>  
+                    <label>
+                    Кадров в секунду
+                    <form  class="gr-input" > <input type="text" id="fraps" value="10">
                     </form>
+                    </label>
 
-                    <form  class="gr-input" > <input type="text" id="T_max">
-                      <label>Максимальная температура</label>  
+                    <label>
+                    Шагов за каждый кадр
+                    <form  class="gr-input" > <input type="text" id="steps" value="1">
                     </form>
+                    </label>
 
-                    <form  class="gr-input" > <input type="text" id="T_min">
-                      <label>Минимальная температура</label>  
+                    <label>
+                    Температура нажатия ЛКМ
+                    <form  class="gr-input" > <input type="text" id="T_mmx" value="10">
                     </form>
+                    </label>
 
-                    <input class="knopki" type="button" id="button_send" value="Отправить"/>
+                    <label>Температура нажатия ПКМ
+                    <form  class="gr-input" > <input type="text" id="T_mmn" value="1">
+                    </form>
+                    </label>
+
+                    <label>Температуропроводность
+                    <form  class="gr-input" > <input type="text" id="T_mmn" value="1">
+                    </form>
+                    </label>
+
+                    <input class="knopki" type="button" id="sendbutton" value="Отправить"/>
       </td>
 
 
@@ -78,7 +98,7 @@
   </tr>
 </table>
 
-<script  src="./script.js"></script>
+
 <script src="./scripts/showtime.js"> </script>
 <script src="./scripts/Heat_2D.js"> </script>
 </body>

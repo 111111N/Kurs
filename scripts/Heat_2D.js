@@ -3,13 +3,19 @@
 
 window.addEventListener("load", main_heat, false);
 
-var Fps_input = document.getElementById("fps");
-var T_min_input = document.getElementById("T_min");
-var T_max_input = document.getElementById("T_max");
+var newfps=document.getElementById('fraps');
+var newspf=document.getElementById('steps');
+var newT_mouse_max=document.getElementById('T_mmx');
+var newT_mouse_min=document.getElementById('T_mmn');
+var newx=document.getElementById(xi)
+var isFunctionRunning = false;
 
 function main_heat() {
-
+    if(isFunctionRunning==true){
+        return
+    }
     // Предварительные установки
+    isFunctionRunning = true;
 
     var canv = init_canvas(Heat_2D_canvas);
 
@@ -17,19 +23,21 @@ function main_heat() {
     var t0 = 1;                             // масштаб времени
     var m0 = 1;                             // масштаб массы
     var T0 = 1;                             // масштаб температуры
+
     var dx = 1 * a0;                        // шаг сетки по оси x
+
     var spf = 1;                            // steps per frame - сколько расчетов проходит за каждый кадр отображения
-    var fps = 1;
+    var fps = 10;
     var dt = 0.005 * t0;                    // шаг интегрирования по времени
 
     var p0 = m0 / (a0 * a0 * a0);           // единица плотности, кг/м3
-    var c0 = a0 * a0 / (t0 * t0 * T0);      // единица удельной теплоемкости, Дж/(кг * К), Дж = кг * м2 / с2, => м^2/с^2*К
-    var kap0 = m0 * a0 / (t0 * t0 * t0 * T0); // единица теплопроводности (каппа), ВТ/см*К, Вт=Дж/c, => кг * м/ с^3*К
+    var c0 = a0 * a0 / (t0 * t0 * T0);      // единица удельной теплоемкости, Дж/(кг * К)    (Дж = кг * м2 / с2)
+    var kap0 = m0 * a0 / (t0 * t0 * t0 * T0);// единица теплопроводности (?, каппа)
 
     var p = 0.15 * p0;
     var c = 0.2 * c0;
     var k = 1 * kap0;
-    var X = k / (c * p);                    // температуропроводность (хи)
+    var X = k / (c * p);                    // температуропроводность (?, хи)
 
     var Nx = 50 + 2;                        // количество узлов по оси x + 2 для ГУ
     var Ny = 50 + 2;
@@ -44,7 +52,7 @@ function main_heat() {
     var T_mouse_max = 9;                    // температура для левой клавиши мыши
     var T_mouse_min = 1;                                 // температура для правой клавиши мыши
 
-    var color_N = 500;                       // цветов не больше, чем color_N, саму переменную color_N в расчетах лучше не использовать
+    var color_N = 1000;                       // цветов не больше, чем color_N, саму переменную color_N в расчетах лучше не использовать
     var colors = prepare_colors(color_N);
     var cell_pics = prepare_cell_pics(colors);
 
@@ -217,12 +225,23 @@ function main_heat() {
 
         return canv_obj;
     }
-     document.getElementById("button_send").onclick = function() {
-        fps = Math.round(Fps_input.value);
-        T_min = Math.round(T_min_input.value);
-        T_max = Math.round(T_max_input.value);
-    };
+    document.getElementById('sendbutton').onclick = function(){
+    if(newfps.value-newfps.value==0){
+    fps=Math.round(newfps.value);
+    setInterval(control, 1000 / fps);
+    }
+        
+    if(newspf.value-newspf.value==0){
+    spf=Math.round(newspf.value);
+    }
+    if(newT_mouse_max.value-newT_mouse_max.value==0){
+    T_mouse_max=Math.round(newT_mouse_max.value);}
+
+    if(newT_mouse_min.value-newT_mouse_min.value==0){
+    T_mouse_min=Math.round(newT_mouse_min.value);
+    }}
 }
+
 
 // Авторы оригинального кода: Цветков Денис и Антон Кривцов
 // Доработал: Наддака Артём
