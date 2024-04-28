@@ -38,29 +38,30 @@
       <td>
                     <label>
                     Кадров в секунду
-                    <form  class="gr-input" > <input type="text" id="fraps" value="10">
+                    <form> <input type="text" class="forms" id="fraps" value="2">
                     </form>
                     </label>
 
+
                     <label>
                     Шагов за каждый кадр
-                    <form  class="gr-input" > <input type="text" id="steps" value="1">
+                    <form > <input type="text" class="forms" id="steps" value="1" pattern ="[0-9]{0,3}">
                     </form>
                     </label>
 
                     <label>
                     Температура нажатия ЛКМ
-                    <form  class="gr-input" > <input type="text" id="T_mmx" value="10">
+                    <form > <input type="text" class="forms"  id="T_mmx" value="10"  pattern ="[0-9]{0,3}">
                     </form>
                     </label>
 
                     <label>Температура нажатия ПКМ
-                    <form  class="gr-input" > <input type="text" id="T_mmn" value="1">
+                    <form> <input type="text"  class="forms"  id="T_mmn" value="1">
                     </form>
                     </label>
 
                     <label>Температуропроводность
-                    <form  class="gr-input" > <input type="text" id="T_mmn" value="1">
+                    <form > <input type="text"  class="forms"  id="T_mmn" value="1">
                     </form>
                     </label>
 
@@ -70,19 +71,24 @@
 
       <td>
         <div class ="game">
-          <canvas class="Heat" id="Heat_2D_canvas"width="700" height="700">fff</canvas>
+          <canvas class="Heat" id="Heat_2D_canvas" width="700" height="700">fff</canvas>
         </div>
       </td>
 
 
       <td style="text-align: start;"> 
         <ul>
+          <li> 
+            <input class="knopki" type="button" id="toback" value="Вернуться"/>
+          </li>
           <li>
             <input class="knopki" type="button" id="button_pause" value="Пауза/Старт"/>
           </li>
           <li> 
             <input class="knopki" type="button" id="button_clear" value="Очистить"/>
           </li>
+          
+
         </ul>
         </td>
     </tr>

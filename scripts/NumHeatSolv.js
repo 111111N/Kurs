@@ -150,4 +150,22 @@ canvas = document.getElementById("board");
     }, 100); // Задержка в 100 миллисекунд
 });
 
+         theme2.addEventListener("click", function() {
+    // Показываем лоудер
+    Log("<span class='loader'></span>");
+
+    // Очищаем таймер автоматического воспроизведения
+    clearTimeout(autoPlayTimeOut);
+    
+    // Устанавливаем небольшую задержку перед началом длительных операций
+    setTimeout(() => {
+        BuildConfig();
+        initSolution();
+        Resolve();
+        DrawSolution(0);
+    }, 100); // Задержка в 100 миллисекунд
+});
+        
+   
+
         

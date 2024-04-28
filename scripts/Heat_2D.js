@@ -27,17 +27,17 @@ function main_heat() {
     var dx = 1 * a0;                        // шаг сетки по оси x
 
     var spf = 1;                            // steps per frame - сколько расчетов проходит за каждый кадр отображения
-    var fps = 10;
+    var fps = 1;
     var dt = 0.005 * t0;                    // шаг интегрирования по времени
 
     var p0 = m0 / (a0 * a0 * a0);           // единица плотности, кг/м3
-    var c0 = a0 * a0 / (t0 * t0 * T0);      // единица удельной теплоемкости, Дж/(кг * К)    (Дж = кг * м2 / с2)
-    var kap0 = m0 * a0 / (t0 * t0 * t0 * T0);// единица теплопроводности (?, каппа)
+    var c0 = a0 * a0 / (t0 * t0 * T0);       // единица удельной теплоемкости, Дж/(кг * К), Дж = кг * м2 / с2, => м^2/с^2*К
+    var kap0 = m0 * a0 / (t0 * t0 * t0 * T0); // единица теплопроводности (каппа), ВТ/см*К, Вт=Дж/c, => кг * м/ с^3*К
 
     var p = 0.15 * p0;
     var c = 0.2 * c0;
     var k = 1 * kap0;
-    var X = k / (c * p);                    // температуропроводность (?, хи)
+    var X = k / (c * p);                    // температуропроводность (хи)
 
     var Nx = 50 + 2;                        // количество узлов по оси x + 2 для ГУ
     var Ny = 50 + 2;
@@ -52,21 +52,41 @@ function main_heat() {
     var T_mouse_max = 9;                    // температура для левой клавиши мыши
     var T_mouse_min = 1;                                 // температура для правой клавиши мыши
 
-    var color_N = 1000;                       // цветов не больше, чем color_N, саму переменную color_N в расчетах лучше не использовать
+    var color_N = 60;                       // цветов не больше, чем color_N, саму переменную color_N в расчетах лучше не использовать
     var colors = prepare_colors(color_N);
     var cell_pics = prepare_cell_pics(colors);
 
     var pause = false;
+
     button_pause.onclick = function () {pause = !pause;};
     button_clear.onclick = function () {
         for (var i = 0; i < Nx; i++) {
             for (var j = 0; j < Ny; j++) {
-                T[i][j].u = (T_max - T_min) / 2;
+                T[i][j].u = (T_max - T_min) /2;
                 T[i][j].v = 0;
             }
         }
         draw_graph();
     };
+ 
+    toback.onclick = function (){
+        for (var i = 0; i < Nx; i++) {
+        T[i] = [];
+        for (var j = 0; j < Ny; j++) {
+            T[i][j] = {};
+            var x = i / (Nx - 1);
+            var y = j / (Ny - 1);
+
+            var width = 0.05;
+            var power = 5;
+            var plus = 5;
+
+            T[i][j].u = Math.exp(-Math.pow(x - 0.5, 2) / width) * Math.exp(-Math.pow(y - 0.5, 2) / width) * power + plus;
+            T[i][j].v = 0;
+        }
+    }
+    };
+      
 
     var T = [];
     for (var i = 0; i < Nx; i++) {
@@ -85,7 +105,7 @@ function main_heat() {
         }
     }
 
-    // периодические граничные условия
+    /* периодические граничные условия
     for (i = 1; i < Nx - 1; i++) {
         T[i][0] = T[i][Ny - 2];
         T[i][Ny - 1] = T[i][1];
@@ -93,7 +113,7 @@ function main_heat() {
     for (j = 0; j < Ny; j++) {
         T[0][j] = T[Nx - 2][j];
         T[Nx - 1][j] = T[1][j];
-    }
+    } */
 
     function prepare_cell_pics(col) {
         var pics = [];
@@ -158,7 +178,7 @@ function main_heat() {
     }
 
     function calculate_steps(spf, dt) {
-        var koeff1 = X / (dx * dx)     * dt;
+        var koeff1 = X / (dx * dx) * dt;
         for (var s = 0; s < spf; s++) {
             for (var i = 1; i < Nx - 1; i++) {
                 for (var j = 1; j < Ny - 1; j++) {
@@ -225,7 +245,9 @@ function main_heat() {
 
         return canv_obj;
     }
+
     document.getElementById('sendbutton').onclick = function(){
+
     if(newfps.value-newfps.value==0){
     fps=Math.round(newfps.value);
     setInterval(control, 1000 / fps);
@@ -243,6 +265,6 @@ function main_heat() {
 }
 
 
-// Авторы оригинального кода: Цветков Денис и Антон Кривцов
+// Авторы оригинального кода: Цветков Денис и Антон Кривцов  http://tm.spbstu.ru/Двумерное_уравнение_теплопроводности
 // Доработал: Наддака Артём
-// http://tm.spbstu.ru/Цветков_Денис_Валерьевич, http://tm.spbstu.ru/Антон_Кривцов, http://tm.spbstu.ru/Двумерное_уравнение_теплопроводности
+// http://tm.spbstu.ru/Цветков_Денис_Валерьевич, http://tm.spbstu.ru/Антон_Кривцов,
