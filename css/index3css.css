@@ -4,7 +4,7 @@
 
 * {
   font-size: 100%;
-  font: optional: 'Ubuntu';
+  font-family: 'Oswald';
   margin: 0;
   padding: 0;
   outline: none;
@@ -105,6 +105,7 @@ h1 {
     color: #C4CA98;
     display: grid;
     text-shadow: 2px 2px #333, 4px 4px 4px #000;
+    min-width: 10%;
 }
 
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/

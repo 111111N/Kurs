@@ -37,58 +37,62 @@
 
                     T1:
                     <br>
-                    <input  class="gr-input" id="ctlT1" type="range" min="0" max="1" step="0.05" value="1">
-                    
+                    <input  class="ctlT1" id="ctlT1" type="range" min="0" max="1" step="0.05" value="1">
+                    <div id="h4-container"><div id="h4-subcontainer"><h4>T1<span></span></h4></div></div>
 
                     T2:
                     <br>
-                    <input  class="gr-input"  id="ctlT2" type="range" min="0" max="1" step="0.05" value="0">
-                   
+                    <input  class="ctlT2"  id="ctlT2" type="range" min="0" max="1" step="0.05" value="0">
+                    <div id="h4-container"><div id="h4-subcontainer"><h4>T2<span></span></h4></div></div>
 
                     T3:
                     <br>
-                    <input  class="gr-input" id="ctlT3" type="range" min="0" max="1" step="0.05" value="0.15">
+                    <input  class="ctlT3" id="ctlT3" type="range" min="0" max="1" step="0.05" value="0.15">
+                    <div id="h4-container"><div id="h4-subcontainer"><h4>T3<span></span></h4></div></div>
                     
                     T4:
                     <br>
-                    <input  class="gr-input" id="ctlT4" type="range" min="0" max="1" step="0.05" value="0">
+                    <input  class="ctlT4" id="ctlT4" type="range" min="0" max="1" step="0.05" value="0">
+                    <div id="h4-container"><div id="h4-subcontainer"><h4>T4<span></span></h4></div></div>
                     
 
                     Проводимость (c):
                     <br>
-                    <input  class="gr-input" id="ctlConductivity" type="range" min="0.01" max="0.25" step="0.01" value="0.25">
-                    
+                    <input  class="ctlT5" id="ctlConductivity" type="range" min="0.01" max="0.5" step="0.01" value="0.25">
+                    <div id="h4-container"><div id="h4-subcontainer"><h4>Проводимость<span></span></h4></div></div>
 
                     Количество итераций:
                     <br>
-                    <input  class="gr-input" id="ctlIteration" type="range" min="100" max="2000" step="1" value="1000">
-                    
+                    <input  class="ctlT6" id="ctlIteration" type="range" min="100" max="2000" step="1" value="1000">
+                    <div id="h4-container"><div id="h4-subcontainer"><h4>Итераций<span></span></h4></div></div>
 
                     Скорость:
                     <br>
-                    <input  class="gr-input" id="ctlIteration_speed" type="range" min="1" max="10" step="1" value="1">
-                    
+                    <input  class="ctlT7" id="ctlIteration_speed" type="range" min="1" max="10" step="1" value="1">
+                    <div id="h4-container"><div id="h4-subcontainer"><h4>Скорость<span></span></h4></div></div>
 
                     Разрешение:
                     <br>
-                    <input  class="gr-input" id="ctlResulation" type="range" min="0" max="45" step="1" value="45">
+                    <input  class="ctlT8" id="ctlResulation" type="range" min="0" max="45" step="1" value="45">
+                    <div id="h4-container"><div id="h4-subcontainer"><h4>Разрешение<span></span></h4></div></div>
                     
                 </td>
                 <td>
                     <table>
                         <tr>
-                            <td width="100" ></td>
-                            <td>
+                            <td ></td>
+                            <td width="700px">
 
-                                Время : <input  id="ctlTime" type="range" min="0" max="999"
+                                Время : <input  class ="ctlTime" id="ctlTime" type="range" min="0" max="999"
                                     step="1" value="0" oninput="config.autoPlay=false;DrawSolution(this.value)">
+                                        <div id="h4-container"><div id="h4-subcontainer"><h4><span></span></h4></div></div>
                             </td>
 
 
 
 
-    <td>
-        <span id="ctlInfo"><span class='loader'></span></span>
+    <td  class = "statusheat">
+        <span id="ctlInfo" ><span class='loader'></span></span>
     </td>
     <tr>
         <td></td>
@@ -96,13 +100,11 @@
         <td></td>
     </tr>
     <tr>
-        <td id="T1C" style="text-align: end;"> T1</td>
+        <td id="T1C" style="text-align: right;"> T1</td>
 
-        <td class="board">
+        <td class="board" >
             <canvas id="board" width="700" height="700" style="border: 1px solid;">
-
-                
-            </canvas>
+                </canvas>      
         </td>
 
         <td id="T3C" style="text-align: start;">T3</td>
@@ -115,14 +117,7 @@
     </table>
     
     <td> 
-        <img width="450" height="40" src="https://diwsi.github.io/2DHeatEquation/eq.PNG" /><br>
-        <ul>
-            <li>c: Теплопроводимость</li>
-            <li>u: Решение</li>
-            <li>t: Время </li>
-            <li>x,y: Координаты </li>
-        </ul>
-        <br>
+         
         
     </td>
     <tr>
@@ -133,7 +128,7 @@
     <input class="knopki theme" type="button" id="theme2" value="2"/>
     <input class="knopki theme" type="button" id="theme3" value="3"/>
     </td>
-               <th style="padding: 0px 40px 0 0;"><input class="knopki clearbut" type="button" id="button_clear" value="Очистить" oninput="config.autoPlay=true;"/></th>
+               <th><input class="knopki clearbut" type="button" id="button_clear" value="Очистить" oninput="config.autoPlay=true;"/></th>
     <td></td>
     </tr> 
 
@@ -142,7 +137,8 @@
     </div>
    <script src="./scripts/showtime.js"> </script>
     <script src="./scripts/Heat_2D_static.js"> </script>
-    <script src="./scripts/NumHeatSolv.js"> </script>
+     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src="./scripts/slider.js"> </script>
 </body>
 
 </html>

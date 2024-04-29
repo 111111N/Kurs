@@ -162,7 +162,7 @@ canvas = document.getElementById("board");
         BuildConfig();
         initSolution();
         Resolve();
-        DrawSolution(0);
+        DrawSolution(0, ctx.fillStyle = 'lab(' + density + ', ' + 0 + ', ' + 0 + '%)');
     }, 100); // Задержка в 100 миллисекунд
 });
         
