@@ -60,6 +60,7 @@ canvas = document.getElementById("board");
             if (config.autoPlay) {
                 autoPlayTimeOut = setTimeout(() => {
                     DrawSolution(time + Math.round(config.iteration_speed));
+
                 }, 50);
 
             }
@@ -76,7 +77,6 @@ canvas = document.getElementById("board");
                     }
                 }
             } 
-
             config.autoPlay = true;
         }
 
@@ -84,7 +84,6 @@ canvas = document.getElementById("board");
 
             clearTimeout(autoPlayTimeOut);
             config = {
-
                 iterations: document.getElementById('ctlIteration').value,
                 resulation: 50 - document.getElementById('ctlResulation').value,
                 conductivity: document.getElementById('ctlConductivity').value,
@@ -99,20 +98,17 @@ canvas = document.getElementById("board");
             let timeSlider = document.getElementById('ctlTime');
             timeSlider.max = config.iterations;
             timeSlider.value = 0;
-            button_clear.onclick = function BuildConfig(){
-            
-            } 
         }
 
         function InitProblem() {
-            Log("<span class='loader'></span>");
+            Log("<span class='loader'></span> Загрузка...");
             setTimeout(() =>{
                 BuildConfig();
                 initSolution();
                 Resolve();
                 DrawSolution(0);
 
-            },);
+            },3000);
 
         }
 
@@ -121,13 +117,9 @@ canvas = document.getElementById("board");
         }
 
         function initUI() {
-
             info = document.getElementById('ctlInfo');
             //Config controller events
             var controls = document.querySelectorAll(".controls input");
-            for (let i = 0; i < controls.length; i++) {
-                controls[i].addEventListener("change", InitProblem);
-            }
         }
         
 
@@ -135,35 +127,26 @@ canvas = document.getElementById("board");
         InitProblem();
 
        button_clear.addEventListener("click", function() {
-    // Показываем лоудер
-    Log("<span class='loader'></span>");
+         // Очищаем таймер автоматического воспроизведения
+         clearTimeout(autoPlayTimeOut);
+        InitProblem();
+});
 
-    // Очищаем таймер автоматического воспроизведения
-    clearTimeout(autoPlayTimeOut);
-    
-    // Устанавливаем небольшую задержку перед началом длительных операций
-    setTimeout(() => {
-        BuildConfig();
+         button_restart.addEventListener("click", function() {
+          // Показываем лоудер для приличия,
+         Log("<span class='loader'></span>Загрузка...");
+          // Очищаем таймер автоматического воспроизведения
+        clearTimeout(autoPlayTimeOut);
+
+        // Устанавливаем небольшую задержку перед началом длительных операций
+        setTimeout(() => {
+        // Обнуляем время и запускаем заново с теми же значениями
+        let timeSlider = document.getElementById('ctlTime');
+        timeSlider.value = 0;
         initSolution();
         Resolve();
         DrawSolution(0);
-    }, 100); // Задержка в 100 миллисекунд
-});
-
-         theme2.addEventListener("click", function() {
-    // Показываем лоудер
-    Log("<span class='loader'></span>");
-
-    // Очищаем таймер автоматического воспроизведения
-    clearTimeout(autoPlayTimeOut);
-    
-    // Устанавливаем небольшую задержку перед началом длительных операций
-    setTimeout(() => {
-        BuildConfig();
-        initSolution();
-        Resolve();
-        DrawSolution(0, ctx.fillStyle = 'lab(' + density + ', ' + 0 + ', ' + 0 + '%)');
-    }, 100); // Задержка в 100 миллисекунд
+    },);// Задержка в 100 миллисекунд
 });
         
    

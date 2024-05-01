@@ -13,9 +13,9 @@
   font-weight: 600;
 }
 
-/* Проверка границ */
-table,td,tr,th {border: 1px solid #fff;}
-
+/* Проверка границ
+table,td,tr,th {border: 1px solid #000;}
+ */
 
 
 body{
@@ -24,11 +24,12 @@ body{
   font-family: 'Oswald';
   height: 100%;
   width: 87%;
-  margin-left: 12%;   /* Поставить такой же, как и ширину боковой панели */
-  background: linear-gradient(270deg,#000,#000);
+  margin-left: 11.5%;   /* Поставить такой же, как и ширину боковой панели */
+  background: linear-gradient(90deg,#384259,#384259);
   background-attachment: absolute;
   background-size: 100%;
   color:#fff;
+  -webkit-text-stroke: 0.01px #000;
 }
 
 
@@ -97,16 +98,21 @@ body{
 /* Заголовок */
 .headesthead{
   font-size: 2.3rem;
-  margin: 10px;
-  text-align: center;
+
+
 }
 
 table,tr,th{
   width: 100%;
+  max-width: 100%;
   height: 100%;
   text-align: center;
 }
 
+.nonmove{
+  width: 10%;
+
+}
 
 #board,#Heat_2D_canvas {
   background-color: #000000;
@@ -117,12 +123,11 @@ table,tr,th{
   border:5px solid #000000; 
   border-radius:7px; 
   margin-bottom: 5px;
-  
   box-shadow:  10px 0 0.3em  0.2em #000;;
 }
 
 /* Надпись с управлением */
-.control{
+.controlrules{
   width: 100%;
   text-align: center;
   color: #fff;
@@ -133,11 +138,9 @@ table,tr,th{
   background-attachment: absolute;
   background-size: 100%;
   border-radius: 10px;
-  
-
 }
 
-.control td {
+.controlrules td {
 border: 3px solid #000;
 padding: 10px 10px;
 border-radius: 10px;
@@ -167,14 +170,15 @@ box-shadow: 0px 2px 10px 0em #000;
     box-shadow:  2px 3px 0.6em 0 #000;
     }
 
-.knopki:hover {
+.knopki:hover,.theme:hover{
       background: #4a1517;
       color: #fff;
       border: 3px ridge #170109;
       transform: translate(0, 0.25em);
       cursor:pointer;
     }
-.knopki:active {
+
+.knopki:active,.theme:active{
       color: #ffffff;
       background: #150007;
       border: 1px ridge #000;
@@ -182,36 +186,56 @@ box-shadow: 0px 2px 10px 0em #000;
       transition: background-color 0.2s ease-in-out;
   }
 
-  /* Кнопка "Очистить"  */
+/* Кнопка "Очистить"  */
   .clearbut{
-
-    margin-top: 0;
-    min-width: 20%;
+    margin-top: -1vh;
+    margin-left: -1vh;
+    min-width: 10%;
+    height: 50px;
+    padding: 0 0;
   }
 
-  /* Темы */
 
+/* Темы */
   .themetext{
-  text-align: left;
-  font-size: 120%;
-  font-weight: 600;
+  text-align: center;
+  font-size: 200%;
+  font-weight: 700;
   }
 
   .theme{
     font-family: 'Ubuntu';
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     padding: 0em 0em;
-    min-width: 25%;
-    min-height: 25%;
+    min-width: 50px;
     font-size: 100%;
+    color: #fff;
+    border-radius: 3.6rem;
+    background: #222;
+    border: 2px solid #000;
   }
 
+ .activebutton{
+    font-family: 'Ubuntu';
+    width: 50px;
+    height: 50px;
+    padding: 0em 0em;
+    min-width: 50px;
+    font-size: 100%;
+    color: #000;
+    border-radius: 3.6rem;
+    background: #fff;
+    border: 2px solid #000;
+  }
 
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*Слайдеры*/
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
+.numheatsliders{
+  font-size:20px;
+}
 
 body input[type=range] {
   -webkit-appearance: none;
@@ -222,8 +246,8 @@ body input[type=range] {
   outline: 3px   hsl(0, 0%, 0%);
   border: 3px solid #000;
   border-radius: 0.75em;
-  margin-top: 0.25vh;
-  margin-bottom: 2.5vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
   border-bottom: 5px solid #111;
 
 }
@@ -236,7 +260,7 @@ body input[type=range]::-webkit-slider-runnable-track {
   -webkit-appearance: none;
   appearance: none;
   height: 10px;
-  background: linear-gradient(to right, #5555ff 0%, #ffa000 40%, #ff0000 90%);
+
   box-shadow: 1px 1px 1em 2px #000000, -0.5px -0.5px 0.15em 0px #ffffff, 0 0 1em 1px #000;
   border-radius: 1.75em;
 
@@ -264,7 +288,15 @@ body input[type=range]::-webkit-slider-thumb:active {
   cursor: grabbing;
 }
 
+.Temperature::-webkit-slider-runnable-track{
+
+   background: linear-gradient(to right, #5555ff 0%, #ffa000 40%, #ff0000 90%, #660000 100%);
+}
+
 /*Ползунок со временем */
+.ctlTime{
+  font-size:30px;
+}
 #ctlTime{
   width: 420px;
   &::-webkit-slider-runnable-track {
@@ -272,10 +304,9 @@ body input[type=range]::-webkit-slider-thumb:active {
   appearance: none;
   height: 10px;
   background: linear-gradient(to right, #aaa 0%, #bbb 50%, #ccc 90%);
-  box-shadow: 2px 1px 1em 2px #000000, -0.5px -0.5px 0.1em 0px #cccccc  -webkit-appearance: none;
-  text-align: center;
-    }
-}
+  box-shadow: 2px 1px 1em 2px #000000, -0.5px -0.5px 0.1em 0px #cccccc;  -webkit-appearance: none;
+  text-align: center;}
+  }
 
 /*Значения ползунков*/
 #h4-container {
@@ -283,10 +314,12 @@ body input[type=range]::-webkit-slider-thumb:active {
   max-width: 100%;
   padding: 0 20px;
 }
+
 #h4-container #h4-subcontainer {
   width: 100%;
   position: relative;
 }
+
 #h4-container #h4-subcontainer h4 {
   display: flex;
   align-items: center;
@@ -296,63 +329,105 @@ body input[type=range]::-webkit-slider-thumb:active {
   margin-top: -6rem;
   width: 40px;
   height: 40px;
-  color: #fff !important;
-  font-size: 12px;
-  transform-origin: center 10px;
-  transition: margin-top 0.15s ease-in-out, opacity 0.15s ease-in-out;
+  color: #000 !important;
+  font-size: 16px;
+  transition: margin-top 0.15s ease-in-out, opacity 0.05s ease-in-out;
 }
+
 #h4-container #h4-subcontainer h4 span {
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  background-color: #ff97ff;
+  background: hsl(190 100% 70%);
+  filter: drop-shadow(1.7rem 1.8rem 25px hsl(190 100% 50%));
   border-radius: 100% 10% 0 ;
   transform: rotate(45deg);
   z-index: -1;
+}
+
+.h4time{
+  &#h4-container{
+  width: 400px;
+  border: 1px solid #fff;
+  margin-left: 11.2rem;
+}
 }
 
 input:not(:active) + #h4-container h4 {
   opacity: 0;
   margin-top: 500px;
   pointer-events: none;
+  transition: margin-top 0.55s ease-in-out, opacity 0.05s ease-in-out;
 }
 
 
 
-
-
-/* Загрузка */
-.loader {
-    width: 35px;
-    height: 35px;
-    border: 5px solid #FFF;
-    border-bottom-color: #FF3D00;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
-    }
-    @keyframes rotation {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-    }
 
 /*Статусбар*/
 .statusheat {
-  color: #0f0;
-  border: 5px solid #fff;
-  width: 22%;
-  text-align: left;
+  vertical-align: middle;
+
+  color: #fff;
+  border: 0px solid #fff;
+  width: 300px;
+  height: 60px;
+  max-width: 300px;
+  max-height: 80px;
+  font-size: 180%;
+  text-align: justify-all;
+
 }
 
-/*Формы для заполнения*/
+/* Загрузка */
+.loader {
+    width: 46px;
+    height: 46px;
+    border: 7px double #FFF;
+    border-top-color: #F73859;
+    border-bottom-color: #F73859;
+    border-radius: 100%;
+    display: inline-block;
+    box-sizing: border-box;
 
+    animation: rotation 3s linear infinite;
+    background-origin: 1px ;
+    align-content: center;
+    text-align: center;
+    background-color: hsl(7,4%,10%);
+    margin-right: 2vh;
+    }
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);   
+    }
+
+    50%{
+        filter: blur(0.5px);
+        transform: rotate(360deg); 
+        border:20px double #000;
+    }
+
+    50%{
+      transform: rotate(1080deg);
+      filter: blur(1px);
+    }
+
+    75%
+    {
+        transform: rotate(1440deg);
+        border: 7px double #FFF;
+    }
+
+    100% {
+        transform: rotate(1440deg);
+    }
+    }
+
+
+
+/*Формы для заполнения*/
 .forms {
  background: #ecf0f3;
   padding: 10px;

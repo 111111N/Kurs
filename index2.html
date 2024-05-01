@@ -18,47 +18,49 @@
         <li><a href="index2.html">Численное решение</a></li>
         <li><a href="index3.html">1D Решение</a></li>
         <li><a href="#">Контакты</a></li>
-    </td></tr>
-    <tr><td>
-        <li><div class="showtime"> Время <div id="clock">
-        </div></li>
+            </td>
+    </tr>
+    <tr class="showtime"><td >
+        <li ><div > Время <div id="clock"> 00:00:00</div></li>
     </td></tr>
     </table>
 </nav>
 
 <body>
     <div style="float: left; margin-left: 10px;">
-        <table class=""> 
-               <td></td>
-               <th class="headesthead">Численное решение уравнения теплопроводности </th>
-            <td></td>
+        <table class="controls"> 
+              <tr>
+               <td></td><th class="headesthead">Численное решение уравнения теплопроводности</th>
+             </tr>
+            
             <tr>
-                <td  class="controls">
+                <td   class="numheatsliders">
 
                     T1:
                     <br>
-                    <input  class="ctlT1" id="ctlT1" type="range" min="0" max="1" step="0.05" value="1">
+                    <input  class="ctlT1 Temperature" id="ctlT1" type="range" min="0" max="1" step="0.05" value="1">
                     <div id="h4-container"><div id="h4-subcontainer"><h4>T1<span></span></h4></div></div>
-
+                    <hr>
                     T2:
                     <br>
-                    <input  class="ctlT2"  id="ctlT2" type="range" min="0" max="1" step="0.05" value="0">
+                    <input  class="ctlT2 Temperature"  id="ctlT2" type="range" min="0" max="1" step="0.05" value="0">
                     <div id="h4-container"><div id="h4-subcontainer"><h4>T2<span></span></h4></div></div>
-
+                    <hr>
                     T3:
                     <br>
-                    <input  class="ctlT3" id="ctlT3" type="range" min="0" max="1" step="0.05" value="0.15">
+                    <input  class="ctlT3 Temperature" id="ctlT3" type="range" min="0" max="1" step="0.05" value="0.15">
                     <div id="h4-container"><div id="h4-subcontainer"><h4>T3<span></span></h4></div></div>
-                    
+                    <hr>
                     T4:
                     <br>
-                    <input  class="ctlT4" id="ctlT4" type="range" min="0" max="1" step="0.05" value="0">
+                    <input  class="ctlT4 Temperature" id="ctlT4" type="range" min="0" max="1" step="0.05" value="0">
                     <div id="h4-container"><div id="h4-subcontainer"><h4>T4<span></span></h4></div></div>
-                    
+                    <hr>
 
+                     <br> <br> <br>
                     Проводимость (c):
                     <br>
-                    <input  class="ctlT5" id="ctlConductivity" type="range" min="0.01" max="0.5" step="0.01" value="0.25">
+                    <input  class="ctlT5" id="ctlConductivity" type="range" min="0.01" max="0.25" step="0.01" value="0.25">
                     <div id="h4-container"><div id="h4-subcontainer"><h4>Проводимость<span></span></h4></div></div>
 
                     Количество итераций:
@@ -74,30 +76,31 @@
                     Разрешение:
                     <br>
                     <input  class="ctlT8" id="ctlResulation" type="range" min="0" max="45" step="1" value="45">
-                    <div id="h4-container"><div id="h4-subcontainer"><h4>Разрешение<span></span></h4></div></div>
+                    <div id="h4-container"><div id="h4-subcontainer"><h4>45<span></span></h4></div></div>
                     
                 </td>
                 <td>
                     <table>
                         <tr>
                             <td ></td>
-                            <td width="700px">
+                            <td width="700px" class ="ctlTime">
 
                                 Время : <input  class ="ctlTime" id="ctlTime" type="range" min="0" max="999"
                                     step="1" value="0" oninput="config.autoPlay=false;DrawSolution(this.value)">
-                                        <div id="h4-container"><div id="h4-subcontainer"><h4><span></span></h4></div></div>
-                            </td>
-
-
-
-
-    <td  class = "statusheat">
-        <span id="ctlInfo" ><span class='loader'></span></span>
+                                        <div class="h4time" id="h4-container"><div id="h4-subcontainer"><h4><span></span></h4></div></div>
+                            </td> 
+                            <td  class = "statusheat">
+        <span id="ctlInfo" ><span class='loader'></span>Проверь код</span>
     </td>
+
+
+
+
+ 
     <tr>
-        <td></td>
+        <td ></td>
         <td id="T2C" style="text-align: center;"> T2 </td>
-        <td></td>
+          <td></td>
     </tr>
     <tr>
         <td id="T1C" style="text-align: right;"> T1</td>
@@ -114,6 +117,7 @@
         <td id="T4C" style="text-align: center;"> T4 </td>
         <td></td>
     </tr>
+</tr>
     </table>
     
     <td> 
@@ -121,25 +125,29 @@
         
     </td>
     <tr>
-    
-    <td class ="themetext">
+    <div  class ="changetheme">
+        <td class ="themetext">
         Темы: 
-     <input class="knopki theme" type="button" id="theme1" value="1"/>
-    <input class="knopki theme" type="button" id="theme2" value="2"/>
-    <input class="knopki theme" type="button" id="theme3" value="3"/>
-    </td>
-               <th><input class="knopki clearbut" type="button" id="button_clear" value="Очистить" oninput="config.autoPlay=true;"/></th>
+            <input class="theme" type="button" id="theme1" value="1"/>
+            <input class="theme" type="button" id="theme2" value="2"/>
+            <input class="theme" type="button" id="theme3" value="3"/>
+        </td>
+               <th>
+                <input class="knopki clearbut" type="button" id="button_clear" value="Обновить" oninput="config.autoPlay=true;"/>
+                <input class="knopki clearbut" type="button" id="button_restart" value="Рестарт" oninput="config.autoPlay=true;"/>
+            </th>
     <td></td>
+    </div>
     </tr> 
 
     </table>
     
     </div>
     <script src="./scripts/showtime.js"> </script>
+    <script src="./scripts/activebutton.js"></script>
     <script src="./scripts/Heat_2D_static.js"> </script>
-    <script src="./scripts/NumHeatSolve.js"> </script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-    <script src="./scripts/slider.js"> </script>
+    <script src="./scripts/slider2.js"> </script>
     
 </body>
 

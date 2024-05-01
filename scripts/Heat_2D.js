@@ -7,7 +7,7 @@ var newfps=document.getElementById('fraps');
 var newspf=document.getElementById('steps');
 var newT_mouse_max=document.getElementById('T_mmx');
 var newT_mouse_min=document.getElementById('T_mmn');
-var newx=document.getElementById(xi)
+var newX=document.getElementById('T_xi')
 var isFunctionRunning = false;
 
 function main_heat() {
@@ -261,6 +261,10 @@ function main_heat() {
 
     if(newT_mouse_min.value-newT_mouse_min.value==0){
     T_mouse_min=Math.round(newT_mouse_min.value);
+    }
+
+    if(newX.value-newX.value==0){
+    X=Math.round(newX.value);
     }}
 }
 
