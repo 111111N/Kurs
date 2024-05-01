@@ -1,4 +1,22 @@
 /*Автор https://github.com/diwsi/2D-Heat-Equation-Solver*/
+   
+const changethemefunc  = document.querySelector('.themetext');
+const btns = document.querySelectorAll('.theme'); 
+
+changethemefunc.addEventListener('click', rr => {
+    if (rr.target.classList.contains('theme')){
+
+ btns.forEach(theme => {
+    if(theme.getAttribute('id') === rr.target.getAttribute('id'))
+      theme.classList.add('activebutton');
+    else
+      theme.classList.remove('activebutton');
+    });
+
+ DrawSolution((timeSlider = document.getElementById('ctlTime')).value);
+    }
+});
+
 
 canvas = document.getElementById("board");
         ctx = canvas.getContext("2d");
@@ -47,12 +65,17 @@ canvas = document.getElementById("board");
             Log("Итераций : " + time + "/" + u.length);
             let uT = u[time];
             for (let x = 0; x < uT.length - 1; x++) {
-                for (let y = 0; y < uT[x].length - 1; y++) {                                        //////////////// Цвет фона
+                for (let y = 0; y < uT[x].length - 1; y++) {                                        /////////////////////////////////////////* Цвет фона *////////////////////////////////////////////// 
                     var density = Math.floor(255 * uT[x + 1][y + 1]);
-                    
-                   ctx.fillStyle = 'rgb(' + density + ', ' + 0 + ', ' + 10 + ')';                                    
-/*                    ctx.fillStyle = 'lab(' + density + ', ' + 0 + ', ' + 0 + '%)';                                    *///
-/*                    ctx.fillStyle = 'hsl(' + density + ', ' + 100 + '%, ' + 60 + '%)';                                *///Радужный
+                   if (btns[0].classList.contains('activebutton')) {
+                  ctx.fillStyle = 'rgb(' + density + ', ' + 0 + ', ' + 10 + ')';                /////////////////////////////////////////* Стандарт*//////////////////////////////////////////////
+
+                  } else if (btns[1].classList.contains('activebutton')) {
+                  ctx.fillStyle = 'lab(' + density + ', ' + 0 + ', ' + 0 + '%)';               ////////////////////////////////////////////* ЧБ */////////////////////////////////////////////////
+                  } else if (btns[2].classList.contains('activebutton')) {
+                   ctx.fillStyle = 'hsl(' + density + ', ' + 100 + '%, ' + 60 + '%)';    /////////////////////////////////////////* Радужный *//////////////////////////////////////////
+                  }
+
                     ctx.fillRect(x * config.resulation, y * config.resulation, config.resulation, config.resulation);
                 }
             }
@@ -77,6 +100,7 @@ canvas = document.getElementById("board");
                     }
                 }
             } 
+
             config.autoPlay = true;
         }
 
@@ -90,6 +114,8 @@ canvas = document.getElementById("board");
                 iteration_speed: document.getElementById('ctlIteration_speed').value,
                 autoPlay: false,
             }
+
+
 
             for (let i = 1; i < 5; i++) {
                 config["T" + i] = parseFloat(document.getElementById('ctlT' + i).value);
@@ -137,7 +163,6 @@ canvas = document.getElementById("board");
          Log("<span class='loader'></span>Загрузка...");
           // Очищаем таймер автоматического воспроизведения
         clearTimeout(autoPlayTimeOut);
-
         // Устанавливаем небольшую задержку перед началом длительных операций
         setTimeout(() => {
         // Обнуляем время и запускаем заново с теми же значениями
@@ -148,7 +173,4 @@ canvas = document.getElementById("board");
         DrawSolution(0);
     },);// Задержка в 100 миллисекунд
 });
-        
-   
-
         

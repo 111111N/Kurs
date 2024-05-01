@@ -58,7 +58,9 @@ function main_heat() {
 
     var pause = false;
 
-    button_pause.onclick = function () {pause = !pause;};
+    button_pause.onclick = function () {pause = !pause;
+    button_pause.classList.toggle('activebuttonpause');
+};
     button_clear.onclick = function () {
         for (var i = 0; i < Nx; i++) {
             for (var j = 0; j < Ny; j++) {
@@ -248,24 +250,28 @@ function main_heat() {
 
     document.getElementById('sendbutton').onclick = function(){
 
-    if(newfps.value-newfps.value==0){
-    fps=Math.round(newfps.value);
-    setInterval(control, 1000 / fps);
-    }
+       if(newfps.value-newfps.value==0){
+       fps=Math.round(newfps.value);
+       setInterval(control, 1000 / fps);
+       }
         
-    if(newspf.value-newspf.value==0){
-    spf=Math.round(newspf.value);
-    }
-    if(newT_mouse_max.value-newT_mouse_max.value==0){
-    T_mouse_max=Math.round(newT_mouse_max.value);}
+       if(newspf.value-newspf.value==0){
+       spf=Math.round(newspf.value);
+       }
 
-    if(newT_mouse_min.value-newT_mouse_min.value==0){
-    T_mouse_min=Math.round(newT_mouse_min.value);
+       if(newT_mouse_max.value-newT_mouse_max.value==0){
+       T_mouse_max=Math.round(newT_mouse_max.value);}
+
+       if(newT_mouse_min.value-newT_mouse_min.value==0){
+       T_mouse_min=Math.round(newT_mouse_min.value);
+       }
+
+       if(newX.value-newX.value==0){
+       X=Math.round(newX.value);
+       }
     }
 
-    if(newX.value-newX.value==0){
-    X=Math.round(newX.value);
-    }}
+    
 }
 
 

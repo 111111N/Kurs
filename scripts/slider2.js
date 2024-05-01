@@ -100,3 +100,5 @@ function handleSliderChange(sliderType) {
     document.getElementById("ctlTime").addEventListener('mouseover', function() {
     handleSliderChange('ctlTime');
     });
+
+
