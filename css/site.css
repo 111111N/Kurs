@@ -16,7 +16,9 @@
 /* Проверка границ
 table,td,tr,th {border: 1px solid #000;}S
  */
-
+hr{
+    border: 4px double #162037;
+}
 
 body{
   display: absolute;
@@ -24,15 +26,20 @@ body{
   font-family: 'Oswald';
   height: 100%;
   width: 88%;
-  margin-left: 12%;   /* Поставить такой же, как и ширину боковой панели */
+  margin-left: 11.5%;   /* Поставить такой же, как и ширину боковой панели */
   background: linear-gradient(90deg,#384259,#384259);
   background-attachment: absolute;
   background-size: 100%;
-  color:#fff;
-  -webkit-text-stroke: 0.01px #000;
+  color:#F0EADF;
+  -webkit-text-stroke: 0.03em #000;
+  text-shadow: 1px 1px #333, 3px 3px 0px #000;
 }
 
+.controls{
+  width: 100%;
+  height: 100%;
 
+}
 
 .menu {
   display: absolute;
@@ -97,9 +104,10 @@ body{
 
 /* Заголовок */
 .headesthead{
-  font-size: 2.3rem;
-
-
+  font-size: 2.5rem;
+  color: #D3BF97;
+  -webkit-text-stroke: 0.07rem #000;
+  text-shadow: 0px 0.2rem 0.05rem #35312A;
 }
 
 table,tr,th{
@@ -109,22 +117,57 @@ table,tr,th{
   text-align: center;
 }
 
-.nonmove{
-  width: 10%;
-
-}
-
 #board,#Heat_2D_canvas {
   background-color: #000000;
 }
 
 
+#board{
+    color: #000;
+    border-radius:4px;
+}
+
+
+#T1C{
+  width:250px;
+  max-width: 250px;
+}
+
+/*Оформление таблицы */
 .Heat{
-  border:5px solid #000000; 
+  border:5px solid #000; 
   border-radius:7px; 
   margin-bottom: 5px;
-  box-shadow:  10px 0 0.3em  0.2em #000;;
+  box-shadow:  10px 0 0.3em  0.2em #162037;
 }
+
+.ctlTime{
+  font-size:30px;
+  background: #101423;
+  border: 3px double #162037;
+  box-shadow:  0 0.1em 0.1em  0em #111;
+}
+
+.board,.outaboard{
+  background: #070707;
+  border: 3px double #162037;
+box-shadow:  0 0.2em 0.1em  0em #111;
+}
+
+ .themetext,.numheatsliders,.statusheat,.buttons_block{
+  text-align: center;
+  font-size: 200%;
+  font-weight: 700;
+  background: #101423;
+  border: 5px double #162037;
+  box-shadow:  0 0.1em 0.1em  0em #111;
+  }
+
+  .buttons_block{
+    font-size: 100%;
+      box-shadow:  0 0.2rem 0.1em  0em #111;
+      height: 50px;
+  }
 
 /* Надпись с управлением */
 .controlrules{
@@ -134,7 +177,7 @@ table,tr,th{
   background-color: #47957D;
   font-weight: 600;
   font-size: 160%;
-  background: linear-gradient(to left, #44e 0%, #000 37%,#000 65%, #c11 80%,#600 99%);
+
   background-attachment: absolute;
   background-size: 100%;
   border-radius: 10px;
@@ -148,6 +191,8 @@ box-shadow: 0px 2px 10px 0em #000;
 }
 
 
+
+
 /* На экранах меньшего размера, где высота менее 450 пикселей, изменяет стиль боковой панели (меньше отступов и меньший размер шрифта). */
 @media screen and (max-height: 450px) {
     .menu {padding-top: 15px;}
@@ -156,21 +201,22 @@ box-shadow: 0px 2px 10px 0em #000;
 
 .knopki {
     margin-top: 2vh;
-    color: #fff;
+    color: #000;
     font-family: 'Oswald';
-    font-weight: 600;
+    font-weight: 400;
     font-size: 120%;
     padding: 1.25em 2em;
-    background: #47957D;
-    border: 3px solid #022B1F;
+    background: #C2B396;
+    border: 3px solid #170109;
     border-radius: 0.75em;
     transform-style: preserve-3d;
     transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
     min-width: 100%;
-    box-shadow:  2px 3px 0.6em 0 #000;
+    box-shadow:  2px 3px 0.23em 0 #000;
+
     }
 
-.knopki:hover,.theme:hover,.activebuttonpause{
+.knopki:hover,.activebuttonpause{
       background: #4a1517;
       color: #fff;
       border: 3px ridge #170109;
@@ -189,7 +235,7 @@ box-shadow: 0px 2px 10px 0em #000;
 /* Кнопка "Очистить"  */
   .clearbut{
     margin-top: -1vh;
-    margin-left: -1vh;
+    margin-right: 4rem;
     min-width: 10%;
     height: 50px;
     padding: 0 0;
@@ -197,29 +243,32 @@ box-shadow: 0px 2px 10px 0em #000;
 
 
 /* Темы */
-  .themetext{
-  text-align: center;
-  font-size: 200%;
-  font-weight: 700;
+  .theme{
+    font-family: 'Oswald';
+    min-width: 40px;
+    font-size: 90%;
+    color: #000;
+    border-radius: 3.6rem;
+
+    border: 2px solid #000;
+    text-align: center;
+    font-weight: 300;
+    background: #C2B396;
+    border: 5px double #162037;
   }
 
-  .theme{
-    font-family: 'Ubuntu';
-    width: 50px;
-    height: 50px;
-    padding: 0em 0em;
-    min-width: 50px;
-    font-size: 100%;
-    color: #fff;
-    border-radius: 3.6rem;
-    background: #222;
-    border: 2px solid #000;
-  }
+  .theme:hover{
+      background: #4a1517;
+      color: #fff;
+      border: 3px ridge #170109;
+      transform: translate(0, -0.1em);
+      cursor:pointer;
+    }
 
  .activebutton{
     color: #000;
-    background: #fff;
-    border: 2px solid #000;
+    background: #F0EADF;
+    border: 5px double #162037;
   }
 
 
@@ -254,8 +303,6 @@ body input[type=range]::-webkit-slider-runnable-track {
   -webkit-appearance: none;
   appearance: none;
   height: 10px;
-
-  box-shadow: 1px 1px 1em 2px #000000, -0.5px -0.5px 0.15em 0px #ffffff, 0 0 1em 1px #000;
   border-radius: 1.75em;
 
 }
@@ -264,54 +311,64 @@ body input[type=range]::-webkit-slider-runnable-track {
 body input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  border:  2px solid #ccc;
-  border-radius: 70%;
-  height: 20px;
-  width: 20px;
+  border:  3px solid #aaa;
+  background: #fff;
+  border-radius: 100% 100% 100% 100%;
+  height: 25px;
+  width: 25px;
   position: relative;
   bottom: 8px;
-  background: #333;
   background-size: 50%;
   box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 1);
   cursor: grab;
-  box-shadow: inset 0 0 0 2px #1597ff;
+  transform: rotate(0deg);
 }
+
 body input[type=range]::-webkit-slider-thumb:active {
-  background: #000;
-  border:  2px solid #ccc;
+  background: #333;
+  border:  3px ridge #000;
   cursor: grabbing;
+  filter: hue-rotate(90deg);
 }
 
-.Temperature::-webkit-slider-runnable-track{
-
+/* Температурные слайдеры */
+.TemperatureSlider::-webkit-slider-runnable-track{
    background: linear-gradient(to right, #5555ff 0%, #ffa000 40%, #ff0000 90%, #660000 100%);
 }
 
-/*Ползунок со временем */
-.ctlTime{
-  font-size:30px;
+/* Остальные слайдеры  */
+.OtherSlider::-webkit-slider-runnable-track{
+   background: linear-gradient(to right, #425938 0%, #ffa000 40%, #593842 90%);
+
 }
+
+
+/*Ползунок со временем */
+
 #ctlTime{
   width: 420px;
   &::-webkit-slider-runnable-track {
   -webkit-appearance: none;
   appearance: none;
   height: 10px;
-  background: linear-gradient(to right, #aaa 0%, #bbb 50%, #ccc 90%);
-  box-shadow: 2px 1px 1em 2px #000000, -0.5px -0.5px 0.1em 0px #cccccc;  -webkit-appearance: none;
+  background: linear-gradient(to right, #000002 14%,  #ff0000 100%);
   text-align: center;}
   }
 
+
+
 /*Значения ползунков*/
 #h4-container {
-  width: 300px;
+  width: 295px;
   max-width: 100%;
   padding: 0 20px;
+
 }
 
 #h4-container #h4-subcontainer {
   width: 100%;
   position: relative;
+
 }
 
 #h4-container #h4-subcontainer h4 {
@@ -320,31 +377,35 @@ body input[type=range]::-webkit-slider-thumb:active {
   justify-content: center;
   position: absolute;
   top: 0;
-  margin-top: -6rem;
+  margin-top: -5.48rem;
   width: 40px;
   height: 40px;
-  color: #000 !important;
-  font-size: 16px;
-  transition: margin-top 0.15s ease-in-out, opacity 0.05s ease-in-out;
+  color: #eee !important;
+  font-size: 18px;
+  transition: margin-top 0.25s ease-in-out, opacity 0.05s ease-in-out;
+  filter: drop-shadow(0px 2px 0px hsl(0 0% 0%));
+
 }
 
-#h4-container #h4-subcontainer h4 span {
+#h4-container #h4-subcontainer h4 span{
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  background: hsl(190 100% 70%);
-  filter: drop-shadow(1.7rem 1.8rem 25px hsl(190 100% 50%));
+  outline:4px ridge hsl(190 40% 20%);
+  background: #000;
+  filter: drop-shadow(2.3rem 2.8rem 25px hsl(190 100% 50%));
   border-radius: 100% 10% 0 ;
   transform: rotate(45deg);
   z-index: -1;
+  text-align: center;
 }
 
 .h4time{
   &#h4-container{
-  width: 400px;
-  margin-left: 11.2rem;
+  width: 397px;
+  margin-left: 11.4rem;
 }
 }
 
@@ -355,35 +416,30 @@ input:not(:active) + #h4-container h4 {
   transition: margin-top 0.55s ease-in-out, opacity 0.05s ease-in-out;
 }
 
-
-
-
 /*Статусбар*/
 .statusheat {
   vertical-align: middle;
-
   color: #fff;
-  border: 0px solid #fff;
   width: 300px;
-  height: 60px;
+  height: 30px;
   max-width: 300px;
-  max-height: 80px;
-  font-size: 180%;
+  max-width: 300px;
+  max-height: 50px;
+  font-size: 140%;
   text-align: justify-all;
 
 }
 
 /* Загрузка */
 .loader {
-    width: 46px;
-    height: 46px;
-    border: 7px double #FFF;
+    width: 40px;
+    height: 40px;
+    border: 7px double #fff;
     border-top-color: #F73859;
-    border-bottom-color: #F73859;
+    border-bottom-color: #F03859;
     border-radius: 100%;
     display: inline-block;
     box-sizing: border-box;
-
     animation: rotation 3s linear infinite;
     background-origin: 1px ;
     align-content: center;

@@ -4,8 +4,15 @@ function handleSliderChangeTemperature(sliderType) {
     var minValue = currentSlider.prop('min');
     var maxValue = currentSlider.prop('max');
     var percent = Math.round((currentvalue - minValue) * 100 / (maxValue - minValue));
+    const hex = Math.round(percent / 100 * 255).toString(16);
+    const hexret = Math.round(255- (percent / 100 * 255)).toString(16);
     $('h4').html(Math.round(currentvalue*100) + '<span></span>');
-    $('h4').css({'filter': 'hue-rotate(' + 2*percent + 'deg)', 'transform': 'translateX(-50%)', 'left': Math.round(percent) + '%'});
+    $('h4').css({ 'transform': 'translateX(-50%)', 'left': Math.round(percent) + '%' });
+    $('#h4-container.TempContainer #h4-subcontainer h4 span ').css({ 'background': 'linear-gradient(-230deg, #'
+        +(hex.padStart(2, '0'))+''+Math.round(9-percent/11)+'9'+ (hexret.padStart(2, '0')) 
+        + ' 30%, #'+ (hexret.padStart(2, '0')) +''+Math.round(9-percent/11)+'f' +(hexret.padStart(2, '0'))+ ' 100%'
+        ,'filter' : 'drop-shadow(2.1rem 2.1rem '+(27+Math.round(10-percent/20))+'px hsl('+(230+1.2*percent)+' 66% 55%))'
+        })
 }
 
 function handleSliderChange(sliderType) {
@@ -14,11 +21,33 @@ function handleSliderChange(sliderType) {
     var minValue = currentSlider.prop('min');
     var maxValue = currentSlider.prop('max');
     var percent = Math.round((currentvalue - minValue) * 100 / (maxValue - minValue));
+    const hex = Math.round(0.2*(percent / 100 * 255)).toString(16);
+    const hexret = Math.round(1*(255- (percent / 100 * 255))).toString(16);
     $('h4').html(currentvalue + '<span></span>');
-    $('h4').css({'filter': 'hue-rotate(' + 662*percent + 'deg)', 'transform': 'translateX(-50%)', 'left': Math.round(percent) + '%'});
-
+    $('h4').css({ 'transform': 'translateX(-50%)', 'left': Math.round(percent) + '%' });
+    $('#h4-container.OtherContainer #h4-subcontainer h4 span ').css(
+        { 'background': 'linear-gradient(-230deg, #'
+        +(hexret.padStart(2, '0'))+''+Math.round(9-percent/11)+'9'+ (hex.padStart(2, '0')) 
+        + ' 30%, #'+ (hex.padStart(2, '0')) +''+Math.round(9-percent/11)+'f' +(hex.padStart(2, '0'))+ ' 75%, #593842 100%'
+        ,'filter' : 'drop-shadow(2.1rem 2.1rem '+(29+Math.round(10-percent/20))+'px hsl('+(130+1.6*percent)+' 32% 25%)'
+        })
 }
 
+function handleSliderChangeTime(sliderType) {
+    var currentSlider = $(`.${sliderType}[type="range"]`);
+    var currentvalue = currentSlider.val();
+    var minValue = currentSlider.prop('min');
+    var maxValue = currentSlider.prop('max');
+    var percent = Math.round((currentvalue - minValue) * 100 / (maxValue - minValue));
+    const hex = Math.round(0.2*(percent / 100 * 255)).toString(16);
+    const hexret = Math.round(0.1*(255- (percent / 100 * 255))).toString(16);
+    $('h4').html(currentvalue + '<span></span>');
+    $('h4').css({ 'transform': 'translateX(-50%)', 'left': Math.round(percent) + '%' });
+    $('#h4-container.TimeContainer #h4-subcontainer h4 span ').css(
+        { 'background': 'linear-gradient(-230deg, #000' + ' 10%, #'+ (hex.padStart(2, '0')) +'0000 75%, #593842 100%'
+        ,'filter' : 'drop-shadow(2.1rem 2.1rem '+(29+Math.round(10-percent/20))+'px hsl('+(130+1.6*percent)+' 32% 25%)'
+        })
+}
 
 ////////////////////////////////////////////////////////////////////////////////////* T1 */////////////////////////////////////////////////////////////////////////
     $('.ctlT1[type="range"]').on('change input', function() {
@@ -94,11 +123,11 @@ function handleSliderChange(sliderType) {
 
 ///////////////////////////////////////////////////////////////////////////////////* Время */////////////////////////////////////////////////////////////////////
     $('.ctlTime[type="range"]').on('change input', function() {
-    handleSliderChange('ctlTime');
+    handleSliderChangeTime('ctlTime');
     });
 
     document.getElementById("ctlTime").addEventListener('mouseover', function() {
-    handleSliderChange('ctlTime');
+    handleSliderChangeTime('ctlTime');
     });
 
 

@@ -12,7 +12,7 @@
 }
 
 body {
-	background: linear-gradient(90deg,#826788,#826788);;
+	background: linear-gradient(180deg,#826788,#826788);;
 	background-attachment: fixed;
 	background-size: 100%;
   margin-left: 11%; /* Поставить такой же, как и ширину боковой панели */

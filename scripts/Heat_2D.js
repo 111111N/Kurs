@@ -3,7 +3,7 @@
 
 window.addEventListener("load", main_heat, false);
 
-var newfps=document.getElementById('fraps');
+var color_New=document.getElementById('size')
 var newspf=document.getElementById('steps');
 var newT_mouse_max=document.getElementById('T_mmx');
 var newT_mouse_min=document.getElementById('T_mmn');
@@ -27,7 +27,7 @@ function main_heat() {
     var dx = 1 * a0;                        // шаг сетки по оси x
 
     var spf = 1;                            // steps per frame - сколько расчетов проходит за каждый кадр отображения
-    var fps = 1;
+    var fps = 21;
     var dt = 0.005 * t0;                    // шаг интегрирования по времени
 
     var p0 = m0 / (a0 * a0 * a0);           // единица плотности, кг/м3
@@ -49,10 +49,10 @@ function main_heat() {
     var T_min = 0 * T0;
     var T_max = 10 * T0;
 
-    var T_mouse_max = 9;                    // температура для левой клавиши мыши
+    var T_mouse_max = 10                    // температура для левой клавиши мыши
     var T_mouse_min = 1;                                 // температура для правой клавиши мыши
 
-    var color_N = 60;                       // цветов не больше, чем color_N, саму переменную color_N в расчетах лучше не использовать
+    var color_N = 600;                       // цветов не больше, чем color_N, саму переменную color_N в расчетах лучше не использовать
     var colors = prepare_colors(color_N);
     var cell_pics = prepare_cell_pics(colors);
 
@@ -239,35 +239,35 @@ function main_heat() {
     function init_canvas(canvas) {
         canvas.onselectstart = function () {return false;};     // запрет выделения canvas
         canvas.oncontextmenu = function () {return false;};      // блокировка контекстного меню
-
         var canv_obj = {};
         canv_obj.ctx = canvas.getContext("2d");                  // на context происходит рисование
         canv_obj.w = canvas.width;          // ширина окна в расчетных координатах
         canv_obj.h = canvas.height;         // высота окна в расчетных координатах
-
         return canv_obj;
     }
 
     document.getElementById('sendbutton').onclick = function(){
 
-       if(newfps.value-newfps.value==0){
-       fps=Math.round(newfps.value);
-       setInterval(control, 1000 / fps);
-       }
-        
-       if(newspf.value-newspf.value==0){
-       spf=Math.round(newspf.value);
+       if(color_New.value-color_New.value==0 && color_New.value<1500 && color_New.value>5 && color_N.value!=color_New.value){
+       color_N=color_New.value;
+       colors = prepare_colors(color_N);
+       cell_pics = prepare_cell_pics(colors);
        }
 
-       if(newT_mouse_max.value-newT_mouse_max.value==0){
+
+       if(newspf.value-newspf.value==0 && spf.value!=newspf.value &&  newspf.value<1000){
+       spf=newspf.value;
+       }
+
+       if(newT_mouse_max.value-newT_mouse_max.value==0 &&  T_mouse_max!=newT_mouse_max && Math.abs(newT_mouse_max.value)<10001){
        T_mouse_max=Math.round(newT_mouse_max.value);}
 
-       if(newT_mouse_min.value-newT_mouse_min.value==0){
+       if(newT_mouse_min.value-newT_mouse_min.value==0  && T_mouse_min!=newT_mouse_min && Math.abs(newT_mouse_max.value)<10001){
        T_mouse_min=Math.round(newT_mouse_min.value);
        }
 
-       if(newX.value-newX.value==0){
-       X=Math.round(newX.value);
+       if(newX.value-newX.value==0 && newX.value<41 && newX!=X){
+       X=newX.value;
        }
     }
 
