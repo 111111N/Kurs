@@ -70,7 +70,7 @@ canvas = document.getElementById("board");
                    if (btns[0].classList.contains('activebutton')) {
                   ctx.fillStyle = 'rgb(' + density + ', ' + 0 + ', ' + 10 + ')';                /////////////////////////////////////////* Стандарт*//////////////////////////////////////////////
                   } else if (btns[1].classList.contains('activebutton')) {
-                  ctx.fillStyle = 'lab(' + density + ', ' + 0 + ', ' + 0 + '%)';               ////////////////////////////////////////////* ЧБ */////////////////////////////////////////////////
+                  ctx.fillStyle = 'lab(' + density + ' ' + 0 + ' ' + 0 + '%)';               ////////////////////////////////////////////* ЧБ */////////////////////////////////////////////////
                   } else if (btns[2].classList.contains('activebutton')) {
                    ctx.fillStyle = 'hsl(' + density + ', ' + 100 + '%, ' + 60 + '%)';    /////////////////////////////////////////* Радужный *//////////////////////////////////////////
                   }

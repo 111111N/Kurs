@@ -19,7 +19,9 @@ table,td,tr,th {border: 1px solid #000;}S
 hr{
     border: 4px double #162037;
 }
-
+a{
+  color: #99c;
+}
 body{
   display: absolute;
   position: inherit; 

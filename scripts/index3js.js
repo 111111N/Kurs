@@ -216,3 +216,4 @@ document.querySelector("#tan").onclick = tan;
 document.querySelector("#square").onclick = square;
 document.querySelector("#noise").onclick = random;
 
+///// Оригинал https://codepen.io/Aypleck/pen/YoNpam
